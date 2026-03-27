@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { io, Socket } from "socket.io-client";
 import "./App.css";
 
-// Connect to our Node backend
-const socket: Socket = io("http://localhost:3000");
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+const socket: Socket = io(BACKEND_URL);
 
 function App() {
   const [question, setQuestion] = useState<string>("Waiting for next round...");
